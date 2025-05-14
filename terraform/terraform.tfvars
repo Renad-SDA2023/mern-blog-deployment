@@ -1,5 +1,0 @@
-aws_region           = "eu-north-1"
-key_name             = "blogapp"
-public_key_path      = "C:\\Users\\pc\\.ssh\\blogapp-key.pub"
-media_bucket_name    = "renad-blogapp-media"
-frontend_bucket_name = "renad-blogapp-frontend"
