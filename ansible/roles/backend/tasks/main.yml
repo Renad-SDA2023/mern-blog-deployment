@@ -1,0 +1,23 @@
+- name: Clone the blog app
+  git:
+    repo: https://github.com/cw-barry/blog-app-MERN.git
+    dest: /home/ubuntu/blog-app
+
+- name: Create .env file
+  template:
+    src: env.j2
+    dest: /home/ubuntu/blog-app/backend/.env
+    owner: ubuntu
+    mode: '0600'
+
+- name: Install dependencies
+  npm:
+    path: /home/ubuntu/blog-app/backend
+    state: present
+
+- name: Start backend with PM2
+  shell: |
+    pm2 start index.js --name "blog-backend"
+    pm2 save
+  args:
+    chdir: /home/ubuntu/blog-app/backend
